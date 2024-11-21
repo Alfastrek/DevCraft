@@ -1,16 +1,38 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
   const [roomid, setRoomid] = useState("");
   const [username, setUsername] = useState("");
-
   const createNewRoom = (e) => {
     e.preventDefault();
     const id = uuidv4();
     setRoomid(id);
     toast.success("New Room Created Successfully!");
   };
+
+  const joinRoom = () => {
+    if (!roomid || !username) {
+      toast.error("Room ID and Username Required");
+      return;
+    }
+    navigate(`/editor/${roomid}`, {
+      state: {
+        username,
+      },
+    });
+  };
+  const handleInputEnter = (e) => {
+    console.log("event", e.code);
+    if (e.code === "Enter") {
+      joinRoom();
+    }
+  };
+
   return (
     <div className="homePageWrapper">
       <div className="formWrapper">
@@ -29,6 +51,7 @@ const Home = () => {
             placeholder="ROOM ID"
             onChange={(e) => setRoomid(e.target.value)}
             value={roomid}
+            onKeyUp={handleInputEnter}
           />
           <input
             type="text"
@@ -36,8 +59,11 @@ const Home = () => {
             placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
+            onKeyUp={handleInputEnter}
           />
-          <button className="btn joinBtn">Start!</button>
+          <button className="btn joinBtn" onClick={joinRoom}>
+            Start!
+          </button>
           <span className="createInfo">
             No invite?&nbsp;
             <a onClick={createNewRoom} href="#" className="createNewBtn">
