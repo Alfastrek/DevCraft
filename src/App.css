@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-@keyframes waveAnimation {
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@keyframes gradientAnimation {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 100%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 }
 
@@ -18,18 +19,24 @@
   justify-content: center;
   color: #f0f0f0;
   background: linear-gradient(135deg, #1f1c2c, #928dab, #1f1c2c);
-  background-size: 200% 200%;
+  background-size: 400% 400%; /* Increase the background size for a wider range */
   animation: gradientAnimation 15s ease infinite;
   font-family: "Poppins", sans-serif;
 }
 
 .formWrapper {
-  background: rgba(20, 24, 32, 0.9); /* Dark navy blue with transparency */
+  background: rgba(52, 13, 124, 0.323); /* Dark navy blue with transparency */
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 1);
   width: 400px;
   max-width: 90%;
+  transition: all 0.5s ease-in-out;
+}
+
+.formWrapper:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transition: all 0.5s ease-in-out;
 }
 
 footer {
@@ -76,7 +83,7 @@ footer a:hover {
   margin-bottom: 14px;
   background: #eee;
   font-size: 16px;
-  font-weight: bold;
+
   color: #333;
 }
 
@@ -88,7 +95,9 @@ footer a:hover {
   transition: all 0.3s ease-in-out;
 }
 
-.joinBtn {
+.joinBtn,
+.leaveBtn,
+.copyBtn {
   background: #00aaff;
   color: #fff;
   width: 100px;
@@ -99,7 +108,8 @@ footer a:hover {
   text-transform: uppercase;
 }
 
-.joinBtn:hover {
+.joinBtn:hover,
+.leaveBtn:hover {
   background: #0077cc;
 }
 
@@ -125,4 +135,198 @@ footer a:hover {
   padding: 0;
   border-radius: 6px;
   background: #000000;
+}
+
+.mainWrap {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  height: 100vh;
+  background: #1a1a2e; /* Dark background */
+}
+
+.aside {
+  background: linear-gradient(
+    135deg,
+    #1a1a1a,
+    #0d0d0d
+  ); /* Dark metallic gradient */
+  padding: 16px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+  border-right: 1px solid #424242; /* Subtle border */
+  animation: fadeIn 1s ease-in-out;
+  background-size: 400% 400%; /* Ensure smooth gradient transitions */
+}
+
+.asideInner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.clientsList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  color: #00aaff; /* Light blue for client text */
+}
+
+.userName {
+  margin-top: 10px;
+  font-family: "Arial", sans-serif; /* Change 'Arial' to your desired font */
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #5badff; /* Change the text color as needed */
+  text-transform: capitalize; /* Capitalize the first letter */
+  font-weight: normal; /* Ensure the font is not bold */
+}
+
+.logo {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #e0e0e0
+  ); /* Gradient background */
+  border-bottom: 2px solid #ffffff; /* Slightly thicker border for emphasis */
+  padding: 10px; /* Equal padding for all sides */
+  border-radius: 8px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content */
+}
+
+.logoImage {
+  height: 50px;
+  max-width: 100%; /* Ensure the image scales appropriately */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+
+.leaveBtn,
+.copyBtn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.copyBtn {
+  background-color: #00aaff; /* Light blue button */
+  color: #fff;
+}
+
+.leaveBtn {
+  background-color: #ff0055; /* Red button */
+  color: #fff;
+}
+
+.copyBtn:hover {
+  background-color: #0077cc; /* Darker blue on hover */
+}
+
+.leaveBtn:hover {
+  background-color: #cc0033; /* Darker red on hover */
+}
+
+.editorwrap {
+  padding: 20px;
+  overflow: auto;
+  background: #1c1c24; /* Dark background for editor area */
+}
+
+.liveStatus {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ff00; /* Bright green color */
+  text-align: center;
+  margin: 20px 0;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Add a glow effect */
+  animation: pulse 1.5s infinite; /* Add pulsing animation */
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Basic Customizations */
+.customHr {
+  border: 0;
+  height: 2px; /* Thickness of the line */
+  background: white; /* Color of the line */
+  margin: 20px 0; /* Spacing around the line */
+}
+
+/* Dashed Line */
+.customHrDashed {
+  border: 0;
+  border-top: 2px dashed white; /* Dashed style */
+  margin: 20px 0;
+}
+
+/* Gradient Line */
+.customHrGradient {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient color */
+  margin: 20px 0;
+}
+
+/* Line with Shadow */
+.customHrShadow {
+  border: 0;
+  height: 2px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  margin: 20px 0;
+}
+
+/* Rounded Corners */
+.customHrRounded {
+  border: 0;
+  height: 2px;
+  background: white;
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px 0;
+}
+
+/* Custom Width */
+.customHrWidth {
+  border: 0;
+  height: 2px;
+  background: white;
+  width: 50%; /* Custom width */
+  margin: 20px auto; /* Centered with custom width */
+}
+
+.CodeMirror {
+  min-height: calc(100vh- 10px);
+  font-size: 20px;
+  line-height: 1.6;
+  padding-top: 20px;
 }

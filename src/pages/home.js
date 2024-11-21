@@ -43,7 +43,9 @@ const Home = () => {
             alt="Devcraft Logo"
           />
         </div>
-        <h4 className="mainLabel">Invite Room ID</h4>
+        <h4 className="mainLabel">
+          Enter your <em>Invite</em> Room ID
+        </h4>
         <div className="inputGroup">
           <input
             type="text"
@@ -74,8 +76,8 @@ const Home = () => {
       </div>
       <footer>
         <h4>
-          Built by Aradhya Shukla @
-          <a href="https://github.com/alfastrek">Github</a>
+          Built by Aradhya Shukla.&nbsp;
+          <a href="https://github.com/alfastrek">GitHub</a>
         </h4>
       </footer>
     </div>
