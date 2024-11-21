@@ -147,8 +147,9 @@ footer a:hover {
 .aside {
   background: linear-gradient(
     135deg,
-    #1a1a1a,
-    #0d0d0d
+    #1f1c2c,
+    #635f74,
+    #1f1c2c
   ); /* Dark metallic gradient */
   padding: 16px;
   color: #ffffff;
@@ -162,8 +163,8 @@ footer a:hover {
 
 .asideInner {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .clientsList {
@@ -185,7 +186,7 @@ footer a:hover {
   margin-top: 10px;
   font-family: "Arial", sans-serif; /* Change 'Arial' to your desired font */
   font-size: 16px; /* Adjust the font size as needed */
-  color: #5badff; /* Change the text color as needed */
+  color: #ffffff; /* Change the text color as needed */
   text-transform: capitalize; /* Capitalize the first letter */
   font-weight: normal; /* Ensure the font is not bold */
 }
@@ -251,18 +252,65 @@ footer a:hover {
   color: #00ff00; /* Bright green color */
   text-align: center;
   margin: 20px 0;
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Add a glow effect */
-  animation: pulse 1.5s infinite; /* Add pulsing animation */
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5),
+    0 0 30px rgba(0, 255, 0, 0.3); /* Add a stronger glow effect */
+  animation: pulse 2s infinite;
+  font-family: "Orbitron", sans-serif; /* Use a futuristic font */
+  letter-spacing: 1px; /* Add some spacing between letters */
+}
+.statusContainer {
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+  justify-content: center; /* Center items horizontally */
+}
+.liveStatustext {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Bright green color */
+  text-align: center;
+  margin: 20px 0;
+  /* Add pulsing animation */
+  font-family: "Orbitron", sans-serif; /* Use a futuristic font */
+  letter-spacing: 1px; /* Add some spacing between letters */
 }
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.3);
   }
   50% {
-    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.7),
+      0 0 40px rgba(0, 255, 0, 0.5);
   }
   100% {
-    transform: scale(1);
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.3);
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.7),
+      0 0 40px rgba(0, 255, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.3);
   }
 }
 @keyframes fadeIn {
@@ -325,8 +373,9 @@ footer a:hover {
 }
 
 .CodeMirror {
-  min-height: calc(100vh- 10px);
+  min-height: calc(100vh - 20px);
   font-size: 20px;
-  line-height: 1.6;
+  line-height: 1.5;
   padding-top: 20px;
+  padding-bottom: 20px;
 }

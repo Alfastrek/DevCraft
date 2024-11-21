@@ -20,7 +20,10 @@ const Editorpage = () => {
             />
           </div>
           <hr className="customHrDashed" />
-          <h3 className="liveStatus">You are Live!</h3>
+          <div className="statusContainer">
+            <h3 className="liveStatustext">Status:</h3> &nbsp;
+            <h3 className="liveStatus">Live!</h3>
+          </div>
           <hr className="customHrDashed" />
           <div className="clientsList">
             {clients.map((client) => (
