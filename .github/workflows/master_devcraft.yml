@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - DevCraft
+name: Build and deploy Node.js app to Azure Web App - devcraft
 
 on:
   push:
@@ -19,12 +19,12 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: '18.x'
 
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build
+          npm run build 
           npm test -- --passWithNoTests
 
       - name: Zip artifact for deployment
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: "Production"
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
@@ -53,18 +53,19 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5130C9FDF0BF451081CB6C659C85790C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9EA90C5962BD4D1FBF742158D11ED2A7 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A02FF5E3AF0D488F9FB073F2DFAC2FDE }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E29DA9878ACD4BC1AD31B0EE92FBA52D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6A4CF75E86A54017B4876A4DCC56787B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3D0FD1E2630642F18DBC8FCC87C67078 }}
 
-      - name: "Deploy to Azure Web App"
+      - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "DevCraft"
-          slot-name: "Production"
+          app-name: 'devcraft'
+          slot-name: 'Production'
           package: .
+          
