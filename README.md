@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# DevCraft - Real-Time Code/Text Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**DevCraft** is a live collaborative code editor website where users can write, edit, and share JavaScript code in real-time. It offers syntax highlighting, user notifications, and seamless collaboration for teams or individuals.
 
-## Available Scripts
+### 🌐 Deployment Link
+[DevCraft](https://devcraft.aradhya.site)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠️ Tech Stack
+- **Frontend**: React, CodeMirror
+- **Backend**: Node.js, Express
+- **WebSocket Communication**: Socket.IO
+- **Styling**: CSS
+- **Deployment**: Vercel (Frontend) & Render (Backend)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⚙️ Functionalities
+1. **Create a Room**: Users can create a room with a username and a randomly generated room ID.
+2. **Share Room ID**: The room ID can be shared with others to join the room.
+3. **Collaborative Editing**: All users in the room can see and edit code in real-time.
+4. **Syntax Highlighting**: CodeMirror integration provides syntax support for JavaScript.
+5. **User Notifications**: Notifications when users join or leave the room.
+6. **View Active Users**: See a list of all connected users in the room.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
+- Real-time code synchronization.
+- Instant user join/leave notifications.
+- Easy-to-share room IDs for collaboration.
+- Simple and intuitive user interface.
+- Fully responsive design for all devices.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 How It Works
+1. **Create a Room**:
+   - Go to the [DevCraft](https://devcraft.aradhya.site) homepage.
+   - Enter your username and click "Create Room".
+   - A unique room ID will be generated automatically.
+2. **Share Room ID**:
+   - Copy the room ID and share it with others.
+3. **Join a Room**:
+   - Enter the shared room ID and your username on the homepage to join an existing room.
+4. **Collaborate**:
+   - Start editing the JavaScript code in the editor.
+   - All changes are synchronized in real-time across all connected users.
+5. **Notifications**:
+   - Receive notifications when new users join or leave the room.
+   - View a list of all active users in the sidebar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
