@@ -6,33 +6,35 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+
   const [roomId, setroomId] = useState("");
   const [username, setUsername] = useState("");
   const createNewRoom = (e) => {
     e.preventDefault();
     const id = uuidv4();
     setroomId(id);
-    toast.success("New Room Created Successfully!");
+    toast.success("Created a new room");
   };
 
   const joinRoom = () => {
     if (!roomId || !username) {
-      toast.error("Room ID and Username Required");
+      toast.error("ROOM ID & username is required");
       return;
     }
+
+    // Redirect
     navigate(`/editor/${roomId}`, {
       state: {
         username,
       },
     });
   };
+
   const handleInputEnter = (e) => {
-    console.log("event", e.code);
     if (e.code === "Enter") {
       joinRoom();
     }
   };
-
   return (
     <div className="homePageWrapper">
       <div className="formWrapper">

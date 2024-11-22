@@ -24,6 +24,8 @@ function getAllConnectedClients(roomId) {
       };
     }
   );
+  // console.log(clients);
+  // return clients;
 }
 
 io.on("connection", (socket) => {
@@ -61,6 +63,7 @@ io.on("connection", (socket) => {
     });
     delete userSocketMap[socket.id];
     socket.leave();
+    console.log("socket disconnected", socket.id);
   });
 });
 
