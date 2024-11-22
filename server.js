@@ -6,10 +6,15 @@ const { Server } = require("socket.io");
 const ACTIONS = require("./src/Actions");
 
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 
-app.use(express.static("build"));
-app.use((req, res, next) => {
+app.use(express.static(path.join(__dirname, "build")));
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
