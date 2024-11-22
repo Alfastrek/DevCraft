@@ -8,7 +8,7 @@ const ACTIONS = require("./src/Actions");
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: ["https://devcraft.azurewebsites.net", "http://localhost:3000"], // Allow both production and local development
     methods: ["GET", "POST"],
   },
 });
