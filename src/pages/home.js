@@ -6,21 +6,21 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [roomid, setRoomid] = useState("");
+  const [roomId, setroomId] = useState("");
   const [username, setUsername] = useState("");
   const createNewRoom = (e) => {
     e.preventDefault();
     const id = uuidv4();
-    setRoomid(id);
+    setroomId(id);
     toast.success("New Room Created Successfully!");
   };
 
   const joinRoom = () => {
-    if (!roomid || !username) {
+    if (!roomId || !username) {
       toast.error("Room ID and Username Required");
       return;
     }
-    navigate(`/editor/${roomid}`, {
+    navigate(`/editor/${roomId}`, {
       state: {
         username,
       },
@@ -51,8 +51,8 @@ const Home = () => {
             type="text"
             className="inputBox"
             placeholder="ROOM ID"
-            onChange={(e) => setRoomid(e.target.value)}
-            value={roomid}
+            onChange={(e) => setroomId(e.target.value)}
+            value={roomId}
             onKeyUp={handleInputEnter}
           />
           <input
