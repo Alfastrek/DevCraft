@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;500;600;700;800&display=swap");
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 0%;
@@ -106,6 +107,7 @@ footer a:hover {
   display: block;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: "Parkinsans", sans-serif;
 }
 
 .joinBtn:hover,
@@ -220,6 +222,7 @@ footer a:hover {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: "Lato", sans-serif;
 }
 
 .copyBtn {
@@ -400,7 +403,7 @@ textarea {
   align-items: flex-end; /* Align buttons to the left */
   gap: 10px;
   position: fixed;
-  top: 70px; /* Position 20px from the top */
+  top: 90px; /* Position 20px from the top */
   right: 40px; /* Position 20px from the left */
   z-index: 10;
 }
@@ -547,4 +550,192 @@ button:hover {
   line-height: 1.5;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes revealBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1; /* Fully visible particles */
+  }
+}
+
+/* Ensure particles are initially hidden and animate their reveal */
+#particles-js {
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.6s ease-out; /* Smooth transition */
+  animation: revealBackground 0.5s ease-out forwards;
+  animation-delay: 2.3s; /* Delay background reveal to match text animation */
+}
+
+/* Existing CSS (unchanged) */
+
+.revealText {
+  animation: reveal 0.4s ease-out forwards;
+}
+
+.additionalInfo {
+  opacity: 0;
+  animation: reveal 0.4s;
+}
+
+.animatedGradientText {
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(-45deg, #ff6ec4, #7873f5, #41e2f2, #3b82f6);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 2.7s ease infinite;
+}
+
+.subheading {
+  font-size: 1.8rem; /* Increase font size for better visibility */
+  font-weight: 600; /* Slightly bold for better emphasis */
+  color: #fff; /* White color for readability */
+  margin-top: 1.5rem; /* Increased top margin for better spacing */
+  text-align: center; /* Center align the text */
+  max-width: 80%; /* Control the width to avoid overflowing */
+  line-height: 1.6; /* Add line height for better readability */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Initially translated down */
+  animation: reveal 0.4s ease-out forwards; /* Add animation */
+  animation-delay: 0.1s; /* Slight delay to sync with other elements */
+}
+
+@import url("https://fonts.googleapis.com/css2?Lato&display=swap");
+
+.btnn {
+  cursor: pointer;
+  border: solid rgb(0, 0, 0);
+  font-family: Lato;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  padding: 9px 30px;
+  transition: 769ms;
+  width: 180px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 25px;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 102, 204) 0%,
+    rgb(197, 0, 204) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --hover-width: 221px;
+  font-weight: 300;
+  border-radius: 10px;
+  margin-bottom: -20px;
+}
+
+.btnn:hover {
+  color: rgb(255, 255, 255);
+  width: 221px;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 102, 204) 0%,
+    rgb(197, 0, 204) 100% none repeat scroll 0% 0% / auto padding-box border-box
+  );
+  border-color: rgb(255, 255, 255);
+  border-width: 1.6px;
+  border-style: solid;
+}
+
+.welcomefooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  z-index: 1; /* Ensures the footer is above other content */
+}
+
+.additionalInfo {
+  opacity: 0;
+  animation: reveal 0.5s 1.5s ease-out forwards;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center content */
+  text-align: center; /* Center the text */
+  gap: 0.5rem; /* Space between elements */
+}
+
+.subHeading {
+  font-family: "Parkinsans", sans-serif;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.themeSelectorContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 20px; /* Position on the right side */
+  top: 20px; /* Position near the top */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+.themeSelectorContainer label {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.themeSelector {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #4947477a;
+  background-color: #101111;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.themeSelector:hover {
+  background-color: #203347;
 }

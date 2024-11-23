@@ -4,6 +4,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Codemirror from "codemirror";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/dracula.css";
+import "codemirror/theme/blackboard.css";
+import "codemirror/theme/material-ocean.css";
+import "codemirror/theme/duotone-light.css";
+import "codemirror/theme/eclipse.css";
+import "codemirror/theme/liquibyte.css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/addon/edit/closetag";
 import "codemirror/addon/edit/closebrackets";
@@ -15,6 +20,15 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
   const editorRef = useRef(null);
   const [output, setOutput] = useState("");
   const [isConsoleVisible, setIsConsoleVisible] = useState(false);
+  const [theme, setTheme] = useState("dracula");
+  const initialCode = `/*
+  Language Supported: Javascript
+  Created by: Aradhya Shukla
+  (More Features Coming Soon) 
+*/
+
+ //Enjoy Your Code - 
+  `;
 
   useEffect(() => {
     async function init() {
@@ -22,12 +36,13 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         document.getElementById("realtimeEditor"),
         {
           mode: { name: "javascript", json: true },
-          theme: "dracula",
+          theme: theme,
           autoCloseTags: true,
           autoCloseBrackets: true,
           lineNumbers: true,
         }
       );
+      editorRef.current.setValue(initialCode);
 
       editorRef.current.on("change", (instance, changes) => {
         const { origin } = changes;
@@ -44,6 +59,13 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
     init();
   }, []);
 
+  // Update the theme when the theme state changes
+  useEffect(() => {
+    if (editorRef.current) {
+      editorRef.current.setOption("theme", theme);
+    }
+  }, [theme]);
+
   useEffect(() => {
     if (socketRef.current) {
       const socket = socketRef.current;
@@ -57,7 +79,6 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         socket.off(ACTIONS.CODE_CHANGE);
       };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socketRef.current]);
 
   const runCode = () => {
@@ -83,8 +104,29 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
     setIsConsoleVisible((prev) => !prev);
   };
 
+  const handleThemeChange = (e) => {
+    setTheme(e.target.value);
+  };
+
   return (
     <>
+      <div className="themeSelectorContainer">
+        {" "}
+        <select
+          id="themeSelector"
+          className="themeSelector"
+          onChange={handleThemeChange}
+          value={theme}
+        >
+          {" "}
+          <option value="dracula">Dracula</option>{" "}
+          <option value="material-ocean">Material-Ocean</option>{" "}
+          <option value="liquibyte">Liquibyte</option>{" "}
+          <option value="blackboard">Blackboard</option>{" "}
+          <option value="duotone-light">Duotone-Light</option>{" "}
+          <option value="eclipse">Eclipse</option>{" "}
+        </select>
+      </div>
       <textarea id="realtimeEditor"></textarea>
 
       {/* Button Container */}
