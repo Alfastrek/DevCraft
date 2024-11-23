@@ -52,7 +52,7 @@ const Home = () => {
           <input
             type="text"
             className="inputBox"
-            placeholder="ROOM ID"
+            placeholder="Paste your Room ID or Generate one"
             onChange={(e) => setroomId(e.target.value)}
             value={roomId}
             onKeyUp={handleInputEnter}
@@ -60,7 +60,7 @@ const Home = () => {
           <input
             type="text"
             className="inputBox"
-            placeholder="Username"
+            placeholder="Set your Username"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             onKeyUp={handleInputEnter}
