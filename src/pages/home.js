@@ -52,7 +52,7 @@ const Home = () => {
           <input
             type="text"
             className="inputBox"
-            placeholder="Paste your Room ID or Generate one"
+            placeholder="Paste Room ID or Generate one"
             onChange={(e) => setroomId(e.target.value)}
             value={roomId}
             onKeyUp={handleInputEnter}
