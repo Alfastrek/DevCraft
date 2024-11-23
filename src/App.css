@@ -242,10 +242,11 @@ footer a:hover {
 
 .editorwrap {
   padding: 20px;
-  overflow: auto;
+  overflow: hidden; /* Prevent scrolling */
   background: #1c1c24; /* Dark background for editor area */
+  height: 100vh; /* Ensure the editorwrap spans the full viewport height */
+  box-sizing: border-box; /* Include padding in the height calculation */
 }
-
 .liveStatus {
   font-size: 24px;
   font-weight: bold;
@@ -370,6 +371,174 @@ footer a:hover {
   background: white;
   width: 50%; /* Custom width */
   margin: 20px auto; /* Centered with custom width */
+}
+
+.CodeMirror {
+  min-height: calc(100vh - 20px);
+  font-size: 20px;
+  line-height: 1.5;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* General editor styling */
+.editorwrap {
+  width: 100%;
+  height: 100%;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Button Container */
+.buttonContainer {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: flex-end; /* Align buttons to the left */
+  gap: 10px;
+  position: fixed;
+  top: 70px; /* Position 20px from the top */
+  right: 40px; /* Position 20px from the left */
+  z-index: 10;
+}
+/* Button Styles */
+button {
+  padding: 12px 15px;
+  border: none;
+  background-color: #282c34;
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Run Button with play icon */
+/* Run Button */
+.runButton {
+  background: linear-gradient(135deg, #4caf50, #388e3c); /* Green gradient */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.runButton:hover {
+  background: linear-gradient(
+    135deg,
+    #45a049,
+    #2e7d32
+  ); /* Darker green gradient */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Console Button with terminal icon */
+.consoleButton {
+  background: linear-gradient(135deg, #ff5722, #e64a19); /* Orange gradient */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consoleButton:hover {
+  background: linear-gradient(
+    135deg,
+    #e64a19,
+    #d84315
+  ); /* Darker orange gradient */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.consoleOverlay {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
+  color: white;
+  padding: 20px;
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  max-height: 60%; /* Limit console height */
+  overflow-y: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+/* Heading Style */
+.consoleOverlay h2 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ecf0f1; /* Lighter font color */
+}
+
+/* Console Output */
+.consoleOverlay pre {
+  background-color: #34495e;
+  color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+/* Close Button Styling */
+.toggleConsoleButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #ecf0f1;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for close button */
+.toggleConsoleButton:hover {
+  background-color: #e74c3c;
+}
+
+/* Close icon inside the button */
+.closeIcon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Add fade effect when toggling visibility */
+.consoleOverlay.hidden {
+  transform: translateX(-50%) translateY(100%);
+  opacity: 0;
 }
 
 .CodeMirror {

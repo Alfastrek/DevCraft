@@ -12,7 +12,7 @@
 - **Backend**: Node.js, Express
 - **WebSocket Communication**: Socket.IO
 - **Styling**: CSS
-- **Deployment**: Vercel (Frontend) & Render (Backend)
+- **Deployment**: Azure
 
 ---
 
