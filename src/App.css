@@ -204,7 +204,8 @@ footer a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the content */
+  justify-content: center;
+  margin-bottom: 20px; /* Center the content */
 }
 
 .logoImage {
@@ -265,7 +266,9 @@ footer a:hover {
 .statusContainer {
   display: flex;
   align-items: center; /* Align items vertically centered */
-  justify-content: center; /* Center items horizontally */
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: -20px; /* Center items horizontally */
 }
 .liveStatustext {
   font-size: 24px;
@@ -525,6 +528,7 @@ button:hover {
   border-radius: 50%;
   padding: 5px;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 /* Hover effect for close button */

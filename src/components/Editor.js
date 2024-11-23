@@ -20,7 +20,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
   const editorRef = useRef(null);
   const [output, setOutput] = useState("");
   const [isConsoleVisible, setIsConsoleVisible] = useState(false);
-  const [theme, setTheme] = useState("dracula");
+  const [theme, setTheme] = useState("material-ocean");
   const initialCode = `/*
   Language Supported: Javascript
   Created by: Aradhya Shukla
@@ -119,8 +119,8 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
           value={theme}
         >
           {" "}
-          <option value="dracula">Dracula</option>{" "}
           <option value="material-ocean">Material-Ocean</option>{" "}
+          <option value="dracula">Dracula</option>{" "}
           <option value="liquibyte">Liquibyte</option>{" "}
           <option value="blackboard">Blackboard</option>{" "}
           <option value="duotone-light">Duotone-Light</option>{" "}

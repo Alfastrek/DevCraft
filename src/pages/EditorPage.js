@@ -119,7 +119,7 @@ const EditorPage = () => {
               alt="devcraft logo"
             />
           </div>
-          <hr className="customHrDashed" />
+          {/* <hr className="customHrDashed" /> */}
           <div className="statusContainer">
             <h3 className="liveStatustext">Status:</h3> &nbsp;
             <h3 className="liveStatus">Live!</h3>
@@ -133,12 +133,39 @@ const EditorPage = () => {
         </div>
         <hr className="customHrGradient" />
         <button className="copyBtn" onClick={copyRoomId}>
+          <img
+            src="/copy.png"
+            alt="Copy"
+            style={{
+              width: "16px",
+              marginRight: "8px",
+              verticalAlign: "middle",
+            }}
+          />
           Copy Room ID
         </button>
         <button className="shareBtn" onClick={shareRoomId}>
+          <img
+            src="/send.png"
+            alt="Send"
+            style={{
+              width: "16px",
+              marginRight: "8px",
+              verticalAlign: "middle",
+            }}
+          />
           Share Room ID
         </button>
         <button className="leaveBtn" onClick={leaveRoom}>
+          <img
+            src="/logout.png"
+            alt="Logout"
+            style={{
+              width: "16px",
+              marginRight: "8px",
+              verticalAlign: "middle",
+            }}
+          />
           Leave Room
         </button>
       </div>
