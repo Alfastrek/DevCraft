@@ -106,7 +106,6 @@ footer a:hover {
   margin: 0 auto;
   display: block;
   font-weight: bold;
-  text-transform: uppercase;
   font-family: "Parkinsans", sans-serif;
 }
 
@@ -215,6 +214,7 @@ footer a:hover {
 }
 
 .leaveBtn,
+.shareBtn,
 .copyBtn {
   margin-top: 20px;
   width: 100%;
@@ -738,4 +738,50 @@ button:hover {
 }
 .themeSelector:hover {
   background-color: #203347;
+}
+
+.copyBtn,
+.shareBtn,
+.leaveBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  border-radius: 0px;
+  width: 200px;
+  height: 40px;
+  font-weight: bold;
+  border: 2px solid #333333;
+  transition: 0.3s;
+  box-shadow: 5px 5px 0px 0px rgba(51, 51, 51, 1);
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.copyBtn:hover,
+.shareBtn:hover,
+.leaveBtn:hover {
+  box-shadow: 0 0 #333;
+  color: #fff;
+  background-color: #333;
+  width: 170px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.shareBtn {
+  margin-top: 20px;
+  background-color: #b2ebf2;
+}
+.leaveBtn {
+  background-color: #f44336;
+}
+.copyBtn {
+  background-color: #c8e6c9;
 }

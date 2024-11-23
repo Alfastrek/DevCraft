@@ -83,6 +83,23 @@ const EditorPage = () => {
       console.error(err);
     }
   }
+  const shareRoomId = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          text: `Join the DevCraft room with ID: ${roomId}`,
+        });
+        toast.success("Room ID shared successfully!");
+      } catch (err) {
+        toast.error("Error sharing the room ID. Please try again.");
+      }
+    } else {
+      toast.error(
+        "Your browser does not support native sharing. Room ID has been copied to your clipboard."
+      );
+      copyRoomId();
+    }
+  };
 
   function leaveRoom() {
     reactNavigator("/");
@@ -118,8 +135,11 @@ const EditorPage = () => {
         <button className="copyBtn" onClick={copyRoomId}>
           Copy Room ID
         </button>
+        <button className="shareBtn" onClick={shareRoomId}>
+          Share Room ID
+        </button>
         <button className="leaveBtn" onClick={leaveRoom}>
-          Leave
+          Leave Room
         </button>
       </div>
       <div className="editorwrap">
