@@ -1,6 +1,7 @@
 import axios from "axios";
 
-// Map the selected language to the corresponding Judge0 language ID
+const RAPID_API_KEY = process.env.REACT_APP_RAPIDAPI_KEY; // Use the environment variable
+
 export const getLanguageId = (lang) => {
   const languageMap = {
     javascript: 63, // JavaScript
@@ -22,7 +23,7 @@ export const runCode = async (code, languageId) => {
       url: "https://judge0-ce.p.rapidapi.com/submissions",
       params: { base64_encoded: "false", fields: "*" },
       headers: {
-        "x-rapidapi-key": "cd139ddf63mshcfdbdcbac2b35eap11f422jsnfcee69eba82f",
+        "x-rapidapi-key": RAPID_API_KEY,
         "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
         "Content-Type": "application/json",
       },
