@@ -19,6 +19,7 @@ const EditorPage = () => {
   const { roomId } = useParams();
   const reactNavigator = useNavigate();
   const [clients, setClients] = useState([]);
+  const [codelang, setCodelang] = useState("javascript");
 
   useEffect(() => {
     const init = async () => {
@@ -30,7 +31,7 @@ const EditorPage = () => {
         function handleErrors(e) {
           console.log("socket error", e);
           toast.error("Socket connection failed, try again later.");
-          reactNavigator("/home");
+          reactNavigator("/access");
         }
 
         socketRef.current.emit(ACTIONS.JOIN, {
@@ -61,6 +62,11 @@ const EditorPage = () => {
             return prev.filter((client) => client.socketId !== socketId);
           });
         });
+
+        // Listening for language change
+        socketRef.current.on(ACTIONS.LANGUAGE_CHANGE, ({ language }) => {
+          setCodelang(language);
+        });
       }
     };
     init();
@@ -68,6 +74,7 @@ const EditorPage = () => {
       if (socketRef.current) {
         socketRef.current.off(ACTIONS.JOINED);
         socketRef.current.off(ACTIONS.DISCONNECTED);
+        socketRef.current.off(ACTIONS.LANGUAGE_CHANGE);
         socketRef.current.disconnect();
         socketRef.current = null;
       }
@@ -83,6 +90,7 @@ const EditorPage = () => {
       console.error(err);
     }
   }
+
   const shareRoomId = async () => {
     if (navigator.share) {
       try {
@@ -106,8 +114,17 @@ const EditorPage = () => {
   }
 
   if (!location.state) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/access" />;
   }
+
+  const handleLanguageChange = (language) => {
+    setCodelang(language);
+    socketRef.current.emit(ACTIONS.LANGUAGE_CHANGE, {
+      roomId,
+      language,
+    });
+  };
+
   return (
     <div className="mainWrap">
       <div className="aside">
@@ -119,7 +136,6 @@ const EditorPage = () => {
               alt="devcraft logo"
             />
           </div>
-          {/* <hr className="customHrDashed" /> */}
           <div className="statusContainer">
             <h3 className="liveStatustext">Status:</h3> &nbsp;
             <h3 className="liveStatus">Live!</h3>
@@ -176,6 +192,8 @@ const EditorPage = () => {
           onCodeChange={(code) => {
             codeRef.current = code;
           }}
+          codelang={codelang}
+          onLanguageChange={handleLanguageChange}
         />
       </div>
     </div>

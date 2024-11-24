@@ -85,8 +85,8 @@ const Welcome = () => {
         </div>
         <div className="additionalInfo">
           <h2 className="subHeading">
-            Real-Time Code Editor for Learners and
-            <br /> Collaborations.
+            Real-Time Code Editor for Learners,
+            <br /> Collaborations and Interviews.
           </h2>
 
           <button className="btnn" onClick={handleButtonClick}>

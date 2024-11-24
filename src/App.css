@@ -406,7 +406,7 @@ textarea {
   align-items: flex-end; /* Align buttons to the left */
   gap: 10px;
   position: fixed;
-  top: 90px; /* Position 20px from the top */
+  top: 95px; /* Position 20px from the top */
   right: 40px; /* Position 20px from the left */
   z-index: 10;
 }
@@ -480,7 +480,7 @@ button:hover {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
   color: white;
@@ -520,6 +520,7 @@ button:hover {
   position: absolute;
   top: 10px;
   right: 10px;
+  bottom: 20px;
   background-color: transparent;
   color: #ecf0f1;
   border: none;
@@ -727,20 +728,81 @@ button:hover {
   font-size: 16px;
   font-weight: bold;
 }
-.themeSelector {
+.themeSelector,
+.languageSelector {
   padding: 5px 10px;
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #4947477a;
   background-color: #101111;
-  color: #ffffff;
+  color: #4947477a;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
   margin-top: 20px;
   margin-right: 20px;
+  font-size: 18px;
+  font-family: Trebuchet MS;
+  width: 140px;
+  height: 41px;
+  border-width: 3px;
+  color: rgba(255, 255, 255, 1);
+  border-color: rgba(231, 231, 231, 1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0px 1px 0px 6px #1c1b18;
+  background-color: transparent;
 }
-.themeSelector:hover {
+.themeSelector {
+  width: 170px;
+}
+.themeSelectorContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 20px; /* Position on the right side */
+  top: 20px; /* Position near the top */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.themeSelectorContainer label {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.themeSelector,
+.languageSelector {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #4947477a;
+  background-color: #1a1a2e; /* Dark background */
+  color: #ffffff; /* White text */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.themeSelector:hover,
+.languageSelector:hover {
+  background-color: #203347; /* Darker background on hover */
+}
+
+.themeSelector option,
+.languageSelector option {
+  background-color: #1a1a2e; /* Dark background for options */
+  color: #ffffff; /* White text for options */
+}
+
+.themeSelector option:hover,
+.languageSelector option:hover {
+  background-color: #203347; /* Darker background on option hover */
+}
+or:hover,
+.languageSelector:hover {
   background-color: #203347;
 }
 
