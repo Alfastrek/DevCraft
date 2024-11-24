@@ -98,7 +98,7 @@ const Welcome = () => {
           <p>
             © 2024 DevCraft. Crafted with 🫶🏻 by{" "}
             <a
-              href="https://www.github.com/in/alfastrek"
+              href="https://www.github.com/alfastrek"
               target="_blank"
               rel="noopener noreferrer"
             >
