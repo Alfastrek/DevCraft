@@ -22,7 +22,7 @@ export const runCode = async (code, languageId) => {
       url: "https://judge0-ce.p.rapidapi.com/submissions",
       params: { base64_encoded: "false", fields: "*" },
       headers: {
-        "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
+        "x-rapidapi-key": "cd139ddf63mshcfdbdcbac2b35eap11f422jsnfcee69eba82f",
         "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
         "Content-Type": "application/json",
       },
