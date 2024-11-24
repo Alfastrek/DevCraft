@@ -47,7 +47,7 @@ export const getSubmissionResult = async (submissionId) => {
     method: "GET",
     url: `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}`,
     headers: {
-      "x-rapidapi-key": "9d16676d61mshaf8f72ac835d32ap196573jsn9e14f659d2a0",
+      "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
       "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
     },
   };
