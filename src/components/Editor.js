@@ -10,7 +10,7 @@ import "codemirror/theme/eclipse.css";
 import "codemirror/theme/liquibyte.css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/python/python";
-import "codemirror/mode/clike/clike"; // For C, C++, and C#
+import "codemirror/mode/clike/clike"; // For C, C++, C#, Java
 import "codemirror/mode/ruby/ruby";
 import "codemirror/addon/edit/closetag";
 import "codemirror/addon/edit/closebrackets";
@@ -40,6 +40,8 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         return `/* Language: C#\nCreated by: Aradhya Shukla\n(More Features Coming Soon) */\n\nusing System;\nclass Program {\n  static void Main() {\n    Console.WriteLine("Hello C#!");\n  }\n}`;
       case "ruby":
         return `# Language: Ruby\n# Created by: Aradhya Shukla\n# (More Features Coming Soon)\n\nputs "Hello Ruby!"`;
+      case "text/x-java":
+        return `/* Language: Java\nCreated by: Aradhya Shukla\n(More Features Coming Soon) */\n\npublic class Main {\n  public static void main(String[] args) {\n    System.out.println("Hello Java!");\n  }\n}`;
       default:
         return `/* Language: Javascript\nCreated by: Aradhya Shukla\n(More Features Coming Soon) */\n\nconsole.log("Hello Javascript!")`;
     }
@@ -184,6 +186,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         >
           <option value="javascript">JavaScript</option>
           <option value="python">Python</option>
+          <option value="text/x-java">Java</option>
           <option value="text/x-csrc">C</option>
           <option value="text/x-c++src">C++</option>
           <option value="text/x-csharp">C#</option>
@@ -223,7 +226,7 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
             <pre>{output}</pre>
           </div>
           <button className="toggleConsoleButton" onClick={toggleConsole}>
-            <span className="closeIcon">✖</span>
+            <span className="closeIcon">&times;</span>
           </button>
         </div>
       )}
