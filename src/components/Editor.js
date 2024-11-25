@@ -144,7 +144,11 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
       } else if (result && result.stderr) {
         setOutput(result.stderr); // Display standard error
         toast.dismiss();
-        toast.error("Error in code execution!");
+        toast.error(`Error in code execution: ${result.stderr}`);
+      } else if (result && result.compile_output) {
+        setOutput(result.compile_output); // Display compilation error
+        toast.dismiss();
+        toast.error(`Compilation error: ${result.compile_output}`);
       } else {
         setOutput("No output or error.");
         toast.dismiss();
