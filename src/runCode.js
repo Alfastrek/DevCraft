@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const RAPID_API_KEY = process.env.REACT_APP_RAPIDAPI_KEY; // Use the environment variable
-
+// const RAPID_API_KEY = process.env.REACT_APP_RAPIDAPI_KEY; // Use the environment variable
+const RAPID_API_KEY="cd139ddf63mshcfdbdcbac2b35eap11f422jsnfcee69eba82f";
 export const getLanguageId = (lang) => {
   const languageMap = {
     javascript: 63, // JavaScript
@@ -48,7 +48,7 @@ export const getSubmissionResult = async (submissionId) => {
     method: "GET",
     url: `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}`,
     headers: {
-      "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
+      "x-rapidapi-key": RAPID_API_KEY,
       "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
     },
   };

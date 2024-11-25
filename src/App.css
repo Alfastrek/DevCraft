@@ -117,7 +117,8 @@ footer a:hover {
 .createInfo {
   margin-top: 20px;
   text-align: center;
-  font-size: 14px;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px #000000;
 }
 
 .createNewBtn {
