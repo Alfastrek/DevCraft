@@ -11,6 +11,7 @@ import {
   Navigate,
   useParams,
 } from "react-router-dom";
+import ChatbotComponent from "../components/Chatbot";
 
 const EditorPage = () => {
   const socketRef = useRef(null);
@@ -195,6 +196,9 @@ const EditorPage = () => {
           codelang={codelang}
           onLanguageChange={handleLanguageChange}
         />
+      </div>
+      <div className="chatbot-overlay">
+        <ChatbotComponent />
       </div>
     </div>
   );

@@ -852,3 +852,60 @@ or:hover,
 .copyBtn {
   background-color: #c8e6c9;
 }
+
+/* Styles for the chatbot button */
+.chatbot-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Chatbot container styles */
+.chatbot-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1000;
+  width: 350px;
+  height: 450px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chatbot header styles */
+.react-chatbot-kit-chat-header {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Adjust message box styles */
+.react-chatbot-kit-chat-bot-message {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  margin: 5px 0;
+}
+
+/* User message styling */
+.react-chatbot-kit-chat-user-message {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  margin: 5px 0;
+}
