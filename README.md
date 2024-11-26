@@ -1,6 +1,6 @@
 # DevCraft : Real-Time Code/Text Editor for Learners and Collaborations.
 
-**DevCraft** is a live collaborative code editor website where users can write, edit, and share JavaScript code in real-time. It offers syntax highlighting, user notifications, and seamless collaboration for teams or individuals.
+**DevCraft** is a live collaborative code editor website where users can write, edit, and share multiple Coding Languages with compilation in real-time. It offers syntax highlighting, user notifications, and seamless collaboration for teams or individuals.
 
 ### 🌐 Deployment Link
 [DevCraft](https://devcraft.aradhya.site)
