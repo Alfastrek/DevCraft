@@ -19,7 +19,7 @@ import { faPlay, faTerminal } from "@fortawesome/free-solid-svg-icons";
 import { runCode, getSubmissionResult, getLanguageId } from "../runCode";
 import "../App.css";
 import ACTIONS from "../Actions";
-import toast from "react-hot-toast"; // Importing react-hot-toast
+import toast from "react-hot-toast";
 
 const Editor = ({ socketRef, roomId, onCodeChange }) => {
   const editorRef = useRef(null);
@@ -48,18 +48,16 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
   };
 
   useEffect(() => {
-    // Initialize the editor
     editorRef.current = Codemirror.fromTextArea(
       document.getElementById("realtimeEditor"),
       {
-        mode: codelang, // Initially set to the default language
+        mode: codelang,
         theme: theme,
         autoCloseTags: true,
         autoCloseBrackets: true,
         lineNumbers: true,
       }
     );
-
     editorRef.current.setValue(getInitialCode(codelang));
 
     editorRef.current.on("change", (instance, changes) => {
@@ -75,7 +73,6 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
     });
 
     return () => {
-      // Cleanup editor on component unmount
       if (editorRef.current) {
         editorRef.current.toTextArea();
       }
@@ -83,10 +80,9 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
   }, []);
 
   useEffect(() => {
-    // Update the editor's mode and initial code when the language changes
     if (editorRef.current) {
       editorRef.current.setOption("mode", codelang);
-      editorRef.current.setValue(getInitialCode(codelang)); // Set the initial value
+      editorRef.current.setValue(getInitialCode(codelang));
     }
   }, [codelang]);
 
@@ -115,15 +111,38 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
   }, [socketRef.current]);
 
   const runCodeHandler = async () => {
+    const code = editorRef.current.getValue();
+
+    // Check for input-related keywords
+    const inputKeywords = {
+      python: ["input("],
+      "text/x-csrc": ["scanf", "getchar", "gets"],
+      "text/x-c++src": ["cin", "getline"],
+      "text/x-csharp": ["Console.ReadLine"],
+      ruby: ["gets"],
+      "text/x-java": ["Scanner", "System.in"],
+      javascript: ["prompt"],
+    };
+
+    const keywordsToCheck = inputKeywords[codelang] || [];
+    const containsInputKeyword = keywordsToCheck.some((keyword) =>
+      code.includes(keyword)
+    );
+
+    if (containsInputKeyword) {
+      toast.error(
+        "Input through terminal is not supported yet. Please define all variables and test cases in the code editor."
+      );
+      return;
+    }
+
     toast.loading("Compiling code...");
     setIsConsoleVisible(true);
     try {
-      const code = editorRef.current.getValue();
       const languageId = getLanguageId(codelang);
-      // Call runCode function to execute the code
       const submission = await runCode(code, languageId);
       const submissionId = submission.token;
-      // Poll for the result
+
       let result = null;
       while (!result || result.status.description !== "Accepted") {
         result = await getSubmissionResult(submissionId);
@@ -133,20 +152,19 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         ) {
           break;
         }
-        // Wait before polling again
         await new Promise((resolve) => setTimeout(resolve, 2000));
       }
-      // Output the result
+
       if (result && result.stdout) {
-        setOutput(result.stdout); // Display standard output
+        setOutput(result.stdout);
         toast.dismiss();
         toast.success("Code compiled successfully!");
       } else if (result && result.stderr) {
-        setOutput(result.stderr); // Display standard error
+        setOutput(result.stderr);
         toast.dismiss();
         toast.error(`Error in code execution: ${result.stderr}`);
       } else if (result && result.compile_output) {
-        setOutput(result.compile_output); // Display compilation error
+        setOutput(result.compile_output);
         toast.dismiss();
         toast.error(`Compilation error: ${result.compile_output}`);
       } else {
@@ -172,7 +190,6 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
   const handlecodelangchange = (e) => {
     const newLanguage = e.target.value;
     setCodelang(newLanguage);
-    // Emit language change event
     socketRef.current.emit(ACTIONS.LANGUAGE_CHANGE, {
       roomId,
       language: newLanguage,
@@ -211,8 +228,6 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
         </select>
       </div>
       <textarea id="realtimeEditor"></textarea>
-
-      {/* Button Container */}
       <div className="buttonContainer">
         <button className="runButton" onClick={runCodeHandler}>
           <FontAwesomeIcon icon={faPlay} />
@@ -221,12 +236,10 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
           <FontAwesomeIcon icon={faTerminal} />
         </button>
       </div>
-
-      {/* Console Overlay */}
       {isConsoleVisible && (
         <div className="consoleOverlay">
           <div className="consoleContent">
-            <h2>Console Output</h2>
+            <h2>Code Output</h2>
             <pre>{output}</pre>
           </div>
           <button className="toggleConsoleButton" onClick={toggleConsole}>
